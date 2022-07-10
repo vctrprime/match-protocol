@@ -48,7 +48,7 @@ namespace MatchProtocol.WebUI.Controllers
             var httpClient = _httpClientFactory.CreateClient("teams.service");
 
             var request = new HttpRequestMessage(
-                HttpMethod.Get,
+                HttpMethod.Post,
                 "/team/B");
 
             var response = await httpClient.SendAsync(

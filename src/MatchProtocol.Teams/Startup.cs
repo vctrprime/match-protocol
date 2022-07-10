@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MatchProtocol.Platform.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -19,7 +20,7 @@ namespace MatchProtocol.Teams
         {
             services.AddControllers();
             
-            services.AddAuthentication("Bearer")
+            /*services.AddAuthentication("Bearer")
                 .AddJwtBearer("Bearer", options =>
                 {
                     options.Authority = "https://localhost:9005";
@@ -33,7 +34,11 @@ namespace MatchProtocol.Teams
             {
                 options.AddPolicy("clientIdPolicy", policy => policy.RequireClaim("client_id", "match-protocol-web-client"));
                 options.AddPolicy("anotherServicePolicy", policy => policy.RequireClaim("client_id", "another-service"));
-            });
+            });*/
+            /*services.UseMatchProtocolServicePlatform(
+                "https://localhost:9005", 
+                "teamsService",
+                "teamsSecret");*/
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

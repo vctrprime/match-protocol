@@ -41,22 +41,22 @@ namespace MatchProtocol.IdentityServer
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Address,
                         IdentityServerConstants.StandardScopes.Email,
-                        "teams.service",
+                        "games.service",
                         "roles"
                     }
                 },
                 new Client
                 {
-                    ClientId = "another-service",
-                    ClientName = "Another Service TEST",
+                    ClientId = "games.service",
+                    ClientName = "Match Protocol Games Service",
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     ClientSecrets = new List<Secret>
                     {
-                        new Secret("secret1".Sha256())
+                        new Secret("games.service-secret".Sha256())
                     },
                     AllowedScopes = new List<string>
                     {
-                        "teams.service",
+                        "get-weather.game-settings.service",
                     }
                 }
             };
@@ -64,7 +64,8 @@ namespace MatchProtocol.IdentityServer
         public static IEnumerable<ApiScope> ApiScopes =>
             new ApiScope[]
             {
-                new ApiScope("teams.service", "Teams Service")
+                new ApiScope("get-weather.game-settings.service", "GameSettings Service. Get Weather"),
+                new ApiScope("games.service", "Games Service")
             };
 
         public static IEnumerable<ApiResource> ApiResources =>

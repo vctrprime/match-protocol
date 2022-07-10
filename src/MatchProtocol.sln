@@ -8,6 +8,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{69
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchProtocol.Teams", "MatchProtocol.Teams\MatchProtocol.Teams.csproj", "{1391A956-F76D-4A00-ABCA-6FD9A6A673A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchProtocol.Platform", "MatchProtocol.Platform\MatchProtocol.Platform.csproj", "{ECEE2380-13F3-4CAD-B75F-60CFA5D472A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchProtocol.DTO", "MatchProtocol.DTO\MatchProtocol.DTO.csproj", "{45C024CF-98AE-421C-92C5-8DC25C66A45C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchProtocol.Games", "MatchProtocol.Games\MatchProtocol.Games.csproj", "{E7C71B96-9FAD-4D5B-828A-1E39E0052A0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchProtocol.GameSettings", "MatchProtocol.GameSettings\MatchProtocol.GameSettings.csproj", "{66D59AB8-54AA-4EE2-BDC9-034DE3421292}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,8 +34,27 @@ Global
 		{1391A956-F76D-4A00-ABCA-6FD9A6A673A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1391A956-F76D-4A00-ABCA-6FD9A6A673A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1391A956-F76D-4A00-ABCA-6FD9A6A673A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECEE2380-13F3-4CAD-B75F-60CFA5D472A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECEE2380-13F3-4CAD-B75F-60CFA5D472A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECEE2380-13F3-4CAD-B75F-60CFA5D472A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECEE2380-13F3-4CAD-B75F-60CFA5D472A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45C024CF-98AE-421C-92C5-8DC25C66A45C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45C024CF-98AE-421C-92C5-8DC25C66A45C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45C024CF-98AE-421C-92C5-8DC25C66A45C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45C024CF-98AE-421C-92C5-8DC25C66A45C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7C71B96-9FAD-4D5B-828A-1E39E0052A0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7C71B96-9FAD-4D5B-828A-1E39E0052A0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7C71B96-9FAD-4D5B-828A-1E39E0052A0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7C71B96-9FAD-4D5B-828A-1E39E0052A0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66D59AB8-54AA-4EE2-BDC9-034DE3421292}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66D59AB8-54AA-4EE2-BDC9-034DE3421292}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66D59AB8-54AA-4EE2-BDC9-034DE3421292}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66D59AB8-54AA-4EE2-BDC9-034DE3421292}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1391A956-F76D-4A00-ABCA-6FD9A6A673A6} = {6929B076-76F7-45D0-B61C-14F6F34866F1}
+		{ECEE2380-13F3-4CAD-B75F-60CFA5D472A9} = {6929B076-76F7-45D0-B61C-14F6F34866F1}
+		{E7C71B96-9FAD-4D5B-828A-1E39E0052A0C} = {6929B076-76F7-45D0-B61C-14F6F34866F1}
+		{66D59AB8-54AA-4EE2-BDC9-034DE3421292} = {6929B076-76F7-45D0-B61C-14F6F34866F1}
 	EndGlobalSection
 EndGlobal

@@ -1,6 +1,11 @@
 using System;
 using IdentityModel;
+using MatchProtocol.Platform.Middlewares;
 using MatchProtocol.WebUI.Infrastructure.Handlers;
+using MatchProtocol.WebUI.Infrastructure.Requests.Abstract;
+using MatchProtocol.WebUI.Infrastructure.Requests.Concrete;
+using MatchProtocol.WebUI.Services.Abstract;
+using MatchProtocol.WebUI.Services.Concrete;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
@@ -15,6 +20,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Net.Http.Headers;
+using Serilog;
 
 namespace MatchProtocol.WebUI
 {
@@ -37,13 +43,13 @@ namespace MatchProtocol.WebUI
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/build"; });
             
-            services.AddTransient<AuthenticationDelegatingHandler>();
-            services.AddHttpClient("teams.service", client =>
+            services.AddTransient<WebClientRequestDelegatingHandler>();
+            services.AddHttpClient("apiGatewayClient", client =>
             {
-                client.BaseAddress = new Uri("https://localhost:9015/"); // сейчас здесь url, но будет API GATEWAY URL
+                client.BaseAddress = new Uri("https://localhost:9011/"); // сейчас здесь url, но будет API GATEWAY URL
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
-            }).AddHttpMessageHandler<AuthenticationDelegatingHandler>();
+            }).AddHttpMessageHandler<WebClientRequestDelegatingHandler>();
             
             services.AddHttpContextAccessor();
             
@@ -73,7 +79,7 @@ namespace MatchProtocol.WebUI
                     options.ClaimActions.DeleteClaim("auth_time");
                     options.ClaimActions.MapUniqueJsonKey("role", "role");
 
-                    options.Scope.Add("teams.service");
+                    options.Scope.Add("games.service");
 
                     options.SaveTokens = true;
                     options.GetClaimsFromUserInfoEndpoint = true;
@@ -84,11 +90,16 @@ namespace MatchProtocol.WebUI
                         RoleClaimType = JwtClaimTypes.Role
                     };
                 });
+
+            services.AddTransient<IWebClientHttpRequestSender, WebClientHttpRequestSender>();
+
+            services.AddTransient<IApiGatewayService, ApiGatewayService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseMiddleware<LoggingMiddleware>();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

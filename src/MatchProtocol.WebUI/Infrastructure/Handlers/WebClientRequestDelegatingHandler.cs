@@ -3,29 +3,26 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using IdentityModel.Client;
+using MatchProtocol.Platform.Handlers;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
 namespace MatchProtocol.WebUI.Infrastructure.Handlers
 {
-    public class AuthenticationDelegatingHandler : DelegatingHandler
-        {
-        private readonly IHttpContextAccessor _httpContextAccessor;
+    public class WebClientRequestDelegatingHandler : RequestDelegatingHandler
+    {
 
-        public AuthenticationDelegatingHandler(IHttpContextAccessor httpContextAccessor)
+        public WebClientRequestDelegatingHandler(IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
         {
-            _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
         }
         
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
+            var context = _httpContextAccessor.HttpContext;
+            var accessToken = await context?.GetTokenAsync(OpenIdConnectParameterNames.AccessToken)!;
             
-
-            var accessToken = await _httpContextAccessor
-                .HttpContext.GetTokenAsync(OpenIdConnectParameterNames.AccessToken);
-
             if (!string.IsNullOrWhiteSpace(accessToken))
             {
                 request.SetBearerToken(accessToken);

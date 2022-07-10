@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Serilog;
 
-namespace MatchProtocol.WebUI
+namespace MatchProtocol.GameSettings
 {
     public class Program
     {
@@ -19,7 +20,8 @@ namespace MatchProtocol.WebUI
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); })
-                .UseLogging();
+                .UseLogging()
+                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+
     }
 }
