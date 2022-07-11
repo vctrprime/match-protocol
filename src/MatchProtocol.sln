@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchProtocol.Games", "Matc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchProtocol.GameSettings", "MatchProtocol.GameSettings\MatchProtocol.GameSettings.csproj", "{66D59AB8-54AA-4EE2-BDC9-034DE3421292}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchProtocol.ApiGateway", "MatchProtocol.ApiGateway\MatchProtocol.ApiGateway.csproj", "{4E83C2B8-1014-4BBB-9295-93AC2BB7D798}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{66D59AB8-54AA-4EE2-BDC9-034DE3421292}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66D59AB8-54AA-4EE2-BDC9-034DE3421292}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66D59AB8-54AA-4EE2-BDC9-034DE3421292}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E83C2B8-1014-4BBB-9295-93AC2BB7D798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E83C2B8-1014-4BBB-9295-93AC2BB7D798}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E83C2B8-1014-4BBB-9295-93AC2BB7D798}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E83C2B8-1014-4BBB-9295-93AC2BB7D798}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1391A956-F76D-4A00-ABCA-6FD9A6A673A6} = {6929B076-76F7-45D0-B61C-14F6F34866F1}

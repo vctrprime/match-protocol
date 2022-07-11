@@ -14,7 +14,7 @@ using Newtonsoft.Json;
 namespace MatchProtocol.WebUI.Controllers
 {
     [ApiController]
-    [Route("api/[controller]s")]
+    [Route("[controller]s")]
     [Authorize]
     public class GameController : ControllerBase
     {
@@ -25,12 +25,21 @@ namespace MatchProtocol.WebUI.Controllers
             _apiGatewayService = apiGatewayService;
         }
 
-        [HttpGet]
-        public async Task<GameGetDto> Post()
+        [HttpPost]
+        public async Task<GameGetDto> Post(GamePostDto dto)
         {
-            var result = await _apiGatewayService.CreateGame(new GamePostDto());
+            var result = await _apiGatewayService.CreateGame(dto);
             return result;
         }
+        
+        [HttpGet("{gameId}")]
+        public async Task<GameGetDto> Get(int gameId)
+        {
+            var result = await _apiGatewayService.GetGame(gameId);
+            return result;
+        }
+        
+        
         
         
         

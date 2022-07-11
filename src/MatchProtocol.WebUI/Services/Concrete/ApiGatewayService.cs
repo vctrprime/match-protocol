@@ -16,7 +16,13 @@ namespace MatchProtocol.WebUI.Services.Concrete
         
         public async Task<GameGetDto> CreateGame(GamePostDto game)
         {
-            var gameResult = await _httpRequestSender.PostAsync<GameGetDto>("api/games", game);
+            var gameResult = await _httpRequestSender.PostAsync<GameGetDto>("games", game);
+            return gameResult;
+        }
+
+        public async Task<GameGetDto> GetGame(int gameId)
+        {
+            var gameResult = await _httpRequestSender.GetAsync<GameGetDto>($"games/{gameId}");
             return gameResult;
         }
     }

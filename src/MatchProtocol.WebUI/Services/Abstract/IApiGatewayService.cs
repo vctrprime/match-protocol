@@ -6,5 +6,7 @@ namespace MatchProtocol.WebUI.Services.Abstract
     public interface IApiGatewayService
     {
         Task<GameGetDto> CreateGame(GamePostDto game);
+        
+        Task<GameGetDto> GetGame(int gameId);
     }
 }

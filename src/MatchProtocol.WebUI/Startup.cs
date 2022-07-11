@@ -46,7 +46,7 @@ namespace MatchProtocol.WebUI
             services.AddTransient<WebClientRequestDelegatingHandler>();
             services.AddHttpClient("apiGatewayClient", client =>
             {
-                client.BaseAddress = new Uri("https://localhost:9011/"); // сейчас здесь url, но будет API GATEWAY URL
+                client.BaseAddress = new Uri("https://localhost:9010/");
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
             }).AddHttpMessageHandler<WebClientRequestDelegatingHandler>();

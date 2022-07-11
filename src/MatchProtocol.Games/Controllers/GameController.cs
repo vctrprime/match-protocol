@@ -38,7 +38,28 @@ namespace MatchProtocol.Games.Controllers
             {
                 return BadRequest(se.Message);
             }
-           
+        }
+        
+        [HttpGet("{gameId}")]
+        [Authorize("webClientPolicy")]
+        public async Task<IActionResult> Get(int gameId)
+        {
+            try
+            {
+                var weather = await _gameSettingsApiService.GetWeather();
+                var result = new GameGetDto
+                {
+                    Id = gameId,
+                    Name = "test",
+                    Weather = weather
+                };
+
+                return Ok(result);
+            }
+            catch(SecurityException se)
+            {
+                return BadRequest(se.Message);
+            }
         }
 
     }
